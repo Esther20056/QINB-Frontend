@@ -1,0 +1,145 @@
+.account-main-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:4rem 1.5rem;
+    background-color: var(--bgOne);
+    color: var(--identity);
+}
+
+.account-form {
+    height: 100%;
+    width: 35vw;
+    padding-top:2rem;
+    box-shadow:2px -3px 4px var(--identity);
+    border-radius: 5px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 10px var(--identity);
+    border: 1px solid var(--identity);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+
+/* Headings and text */
+.account-main-container-h2 {
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.3rem;
+    margin-bottom: 1.5rem;
+}
+
+.account-main-container-p {
+    font-size: 0.9rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+/* Input fields and buttons */
+.input-fields,
+.account-button {
+    width: 30vw;
+    height: 3rem;
+    padding: 1rem;
+    border: 0.5px solid var(--identity);
+    background-color:var(--bgOne);
+    color: var(--identity);
+    outline: none;
+    font-size: 1rem;
+}
+
+.account-button{
+    margin-top: 1.5rem;
+    background-color: var(--identity) !important;
+    border: 0.8px solid #e8d8a3;
+    color: var(--bgOne);
+    font-weight: 600;
+    height: 3.5rem;
+    padding: 0;
+}
+
+.input-fields::placeholder {
+    color: var(--identity);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+.account-input-main-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.password-visibility-toggle {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--identity);
+    font-size: 0.95rem;
+    transition: color 0.3s;
+}
+
+.password-visibility-toggle:hover {
+    color: var(--identity);
+}
+
+/* Error message for password validation */
+.password-error-message {
+    color: var(--identity);
+    font-size: 0.9rem;
+    background-color:transparent;
+    padding:0.5rem 1rem;
+    border-radius: 5px;
+    display: inline-block;
+    width: 100%;
+}
+
+/* Don't have an account section */
+.dont-have-an-account {
+    display: flex;
+    gap: 0.2rem;
+}
+
+.dont-have-an-account a {
+    text-decoration: none;
+    color: var(--identity);
+    font-weight: 600;
+}
+
+/* Media Queries for responsiveness */
+@media (min-width:0px) and (max-width:500px){
+    .account-form{
+        width: 95vw;
+    }
+    .account-main-container-p{
+        font-size: 0.8rem;
+    }
+    .input-fields, .account-button{
+        width: 80vw;
+    }
+}
+@media (min-width:501px) and (max-width:768px){
+    .account-form{
+        width: 65vw;
+    } 
+    .input-fields, .account-button{
+        width: 55vw;
+    }
+}
+@media (min-width:768px) and (max-width:992px){
+    .account-form{
+        width: 50vw;
+    } 
+    .input-fields, .account-button{
+        width: 45vw;
+    }
+} 

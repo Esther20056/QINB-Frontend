@@ -1,0 +1,185 @@
+/* Code for Banner.js */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Playfair:ital,opsz,wght@0,5..1200,300..900;1,5..1200,300..900&display=swap');
+.carousel-item .banner-img{
+    width: 100vw !important;
+    height: 90vh !important;
+    object-fit: cover;
+    position: relative;
+}
+.carousel-control-button{
+    background-color: var(--identity);
+}
+
+.slide .carousel-indicators li{
+   background-color: var(--identity) !important;
+}
+.carousel-body-button{
+    background-color: var(--bgOne);
+    width: 10rem;
+    height: 3.5rem;
+    border-radius: 1rem;
+    border: 1px solid var(--identity);
+    position: absolute;
+    bottom: 25%;
+    left: 45%;
+}
+.carousel-body-button a{
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    color: var(--identity);
+    text-decoration: none;
+}
+.slide-two-btn{
+    background-color: var(--identity);
+    border: 1px solid #fff;
+}
+.slide-two-btn a{
+    color: var(--bgOne);
+}
+.slide-three-btn{
+    border: 1px solid var(--identity);
+}
+.img-display img{
+        width: 30px;
+}
+.small-screen-img{
+    display: none;
+}
+.carousel-body-small-screen-text{
+    display: none;
+    text-align: center !important;
+}
+.carousel-body-small-screen-text h3{
+    font-family: "Merriweather", serif;
+    font-weight: 700;
+    text-align: center !important;
+}
+.watches-h3,.watches-p{
+    text-shadow: 1px 0.8px 1px #c4b8b8;
+    color: var(--identity);
+}
+.watches-p{
+    color: #f1dfa1;
+}
+.jewelry-h3,.jewelry-p{
+    text-shadow: 1px 2px 1px var(--identity);
+    color: #ffffff;
+}
+.fragrance-h3,.fragrance-p{
+    text-shadow: 1px 0.8px 1px var(--identity);
+    color: var(--bgOne);
+}
+@media (min-width:0px) and (max-width: 400px){
+    .carousel-body-button{
+        width: 6rem;
+        height: 2rem;
+        bottom: 10%;
+        left: 35%;
+    }
+    .carousel-body-button a{
+        font-size: 0.6rem;
+    }
+     .carousel-body-small-screen-text h3{
+        font-size: 1.1rem;
+    }
+     .carousel-body-small-screen-text p{
+        font-size: 0.95rem;
+}
+.carousel-body-small-screen-text{
+    padding:0 0.2px !important;
+    bottom: 23%;
+}
+}
+@media (min-width:401px) and (max-width: 500px){
+    .carousel-body-button{
+        width: 7rem;
+        height: 2.5rem;
+        bottom: 10%;
+        left: 37%;
+    }
+    .carousel-body-button a{
+        font-size: 0.8rem;
+    }
+     .carousel-body-small-screen-text h3{
+        font-size: 1.4rem;
+    }
+     .carousel-body-small-screen-text p{
+        font-size: 1.05rem;
+}
+.carousel-body-small-screen-text{
+    bottom: 30% !important;
+    padding:0 0.6px !important;
+}
+}
+@media (min-width:501px) and (max-width: 600px){
+    .carousel-body-button{
+        width:8rem;
+        height: 3rem;
+        bottom: 8%;
+        left: 37%;
+    }
+    .carousel-body-button a{
+        font-size: 0.9rem;
+    }
+     .carousel-body-small-screen-text h3{
+        font-size: 1.68rem;
+    }
+     .carousel-body-small-screen-text p{
+        font-size: 1.1rem;
+}
+.carousel-body-small-screen-text{
+    bottom: 35% !important;
+    padding:0 1px !important;
+}
+}
+@media (min-width:601px) and (max-width: 700px){
+    .carousel-body-button{
+        bottom: 13%;
+        left: 38%;
+    }
+     .carousel-body-small-screen-text h3{
+        font-size: 1.9rem;
+    }
+     .carousel-body-small-screen-text p{
+        font-size: 1.2rem;
+}
+.carousel-body-small-screen-text{
+    bottom: 40% !important;
+    padding:0 2px !important;
+}
+}
+@media (min-width:701px) and (max-width: 790px){
+    .carousel-body-button{
+        bottom: 13%;
+        left: 38%;
+    }
+     .carousel-body-small-screen-text h3{
+        font-size: 2rem;
+    }
+     .carousel-body-small-screen-text p{
+        font-size: 1.2rem;
+}
+.carousel-body-small-screen-text{
+    bottom: 40% !important;
+    padding:0 2px !important;
+}
+}
+@media (min-width:0px) and (max-width: 790px){
+    .small-screen-img{
+        display:  block;
+        height:100% !important;
+        width: 100vw;
+        object-fit: contain;
+        position: relative;
+    }
+    .carousel-body-small-screen-text{
+        display: block;
+        position: absolute;
+    }
+    .slide .carousel-indicators li{
+        display: none;
+       }
+   .big-screen-img{
+        display: none;
+    }
+}

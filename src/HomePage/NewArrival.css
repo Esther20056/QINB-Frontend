@@ -1,0 +1,275 @@
+.newarrivals{
+   margin:2rem auto !important;
+   overflow: hidden !important;
+}
+.newarrival-item{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 1.5rem;
+}
+.newarrivals-h2{
+    text-align: center;
+    color: var(--identity);
+    margin-bottom: 1.5rem;
+    text-transform: capitalize;
+}
+.exclusive-deals-img{
+   margin:4rem 0;
+   position: relative;
+   width: 100vw;
+   height: 100%;
+   object-fit: cover;
+}
+.exclusive-carousel-body{
+    text-align: center;
+    position: absolute;
+    top: 35%;
+    left: 5%;
+    color: var(--identity);
+    text-shadow:0.3px 2px  var(--bgOne);
+    letter-spacing: 1px; 
+    line-height: 2rem;
+}
+.exclusive-text-container-for-small-screen{
+    display: none;
+}
+.exclusive-deals-btn{
+    width: 10rem;
+    height: 3.5rem;
+    background-color: var(--bgOne);
+    border:2px solid var(--identity);
+    border-radius: 1rem;
+}
+.exclusive-deals-btn a{
+    color: var(--identity);
+    text-decoration: none;
+}
+  
+  .slider-controls {
+    display: flex;
+    justify-content: space-between;
+    margin:0.5rem 2rem !important;
+  }
+  
+  .slider-button {
+    background-color: var(--bgOne);
+    color: var(--identity);
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-size: 0.9rem;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    width: 6rem;
+    font-weight: 600;
+  }
+  
+  .slider-button:hover {
+    background-color: var(--identity);
+    color: var(--bgOne);
+  }
+  
+  .slider-button:disabled {
+    background-color:var(--identity);
+    color: var(--bgOne);
+    cursor: not-allowed;
+  }
+@media (min-width:0px) and (max-width: 345px){
+    .exclusive-carousel-body{
+        left: 4%;
+        line-height: 0.3rem !important;
+    }
+}
+@media (min-width:346px) and (max-width: 370px){
+    .exclusive-carousel-body{
+        left: 7%;
+        line-height: 0.3rem !important;
+    }
+}
+@media (min-width:371px) and (max-width: 400px){
+    .exclusive-carousel-body{
+        left: 8%;
+        line-height: 0.3rem !important;
+    }
+}
+@media (min-width:401px) and (max-width: 440px){
+    .exclusive-carousel-body{
+        left: 10%;
+        line-height: 0.4rem !important;
+    }
+}
+@media (min-width:440px) and (max-width: 470px){
+    .exclusive-carousel-body{
+        left: 13%;
+        line-height: 0.6rem !important;
+    }
+}
+@media (min-width:471px) and (max-width: 515px){
+    .exclusive-carousel-body{
+        left: 16%;
+        line-height: 0.7rem !important;
+    }
+}
+@media (min-width:516px) and (max-width: 540px){
+    .exclusive-carousel-body{
+        left: 19%;
+        line-height: 0.5rem !important;
+    }
+}
+@media (min-width:541px) and (max-width: 560px){
+    .exclusive-carousel-body{
+        left: 16%;
+        top: 23% !important;
+        line-height: 1rem !important;
+    }
+    .exclusive-deal-header{
+        font-size: 1.69rem !important; 
+   }
+   .exclusive-p{
+       font-size: 1.08rem !important;
+   }
+}
+@media (min-width:0px) and (max-width: 400px){
+   .exclusive-deals-img{
+        background-color: var(--bgOne);
+        height:14rem ;
+        object-fit: contain;
+    }
+}
+@media (min-width:0px) and (max-width: 560px){
+    .exclusive-text-container-for-small-screen{
+        display: block;
+    }
+    .exclusive-text-container-for-big-screen{
+        display: none;
+    }
+    .exclusive-carousel-body{
+        top: 29%;
+    }
+    .exclusive-deal-header{
+         font-size: 1.3rem;
+         letter-spacing: 0.09px; 
+    }
+    .exclusive-p{
+        font-size: 0.85rem;
+    }
+    .exclusive-deals-btn{
+        width: 8rem;
+        height: 2.5rem;
+    }
+    .exclusive-deals-btn a{
+        font-size: 0.9rem;
+    }
+    .newarrival-item{
+        grid-template-columns: 1fr;
+}
+}
+@media (min-width:561px) and (max-width: 800px){
+    .newarrival-item{
+        grid-template-columns: 1fr 1fr;
+        gap: 0.2rem;
+}
+    .exclusive-text-container-for-small-screen{
+        display: block;
+    }
+    .exclusive-text-container-for-big-screen{
+        display: none;
+    }
+    .exclusive-deal-header{
+         font-size: 1.49rem;
+    }
+    .exclusive-p{
+        font-size: 0.95rem;
+    }
+    .exclusive-deals-btn{
+        width: 8rem;
+        height: 2.8rem;
+    }
+}
+@media (min-width:561px) and (max-width: 600px){
+    .exclusive-carousel-body{
+        left: 0.7rem;
+        top: 27.8%;
+        line-height: 1rem;
+    }
+}
+@media (min-width:601px) and (max-width: 650px){
+    .exclusive-carousel-body{
+        top: 29.5%;
+        left: 2.5%;
+        line-height: 1.12rem;
+    }
+}
+@media (min-width:651px) and (max-width: 700px){
+    .exclusive-carousel-body{
+        top: 29.5%;
+        left: 6%;
+        line-height: 1.16rem;
+    }
+}
+@media (min-width:701px) and (max-width: 750px){
+    .exclusive-carousel-body{
+        left: 1%;
+    }
+}
+@media (min-width:751px) and (max-width: 800px){
+    .exclusive-carousel-body{
+        left: 3.5%;
+    }
+}
+@media (min-width:701px) and (max-width: 800px){
+    .exclusive-text-container-for-small-screen{
+        display: none;
+    }
+    .exclusive-text-container-for-big-screen{
+        display: block;
+    }
+    .exclusive-carousel-body{
+        top: 32%;
+    }
+    .exclusive-deal-header{
+        font-size: 1.3rem;
+        margin-bottom: 1.7rem;
+   }
+   .exclusive-p{
+       font-size: 0.9rem;
+       margin-top: -1.2rem;
+   }
+}
+@media (min-width:801px) and (max-width: 900px){
+    .exclusive-text-container-for-small-screen{
+        display: none;
+    }
+    .exclusive-carousel-body{
+        line-height: 1rem !important;
+        left: 3%;
+    }
+    .exclusive-deals-btn{
+        width: 8rem;
+        height: 2.8rem;
+    }
+    .newarrival-item{
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 0rem;
+}
+}
+@media (min-width:568px) and (max-width: 800px){
+    .newarrival-item{
+        grid-template-columns: 1fr 1fr;
+        gap: 0rem;
+}
+}
+@media (min-width:901px) and (max-width: 1100px){
+    .newarrival-item{
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 0.2rem;
+}
+}
+@media (min-width:1101px) and (max-width: 1300px){
+    .newarrival-item{
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 0.2rem;
+}
+}

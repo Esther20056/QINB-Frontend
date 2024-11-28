@@ -1,0 +1,106 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+.contact-us, .who-we-are, .careers, .FAQ, .about, .TC,.blog-container{
+    padding:4rem 2rem;
+    background-color: var(--bgOne);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.about{
+    gap: 0.2rem !important;
+}
+#about-btn{
+    width: 10rem;
+    height: 3.5rem;
+    background-color: transparent;
+    border-radius: 1rem;
+    border: 1px groove var(--identity);
+}
+#about-btn a{
+    color: var(--identity);
+    font-weight: 600;
+    text-decoration: none;
+}
+.contact-us p, .who-we-are p, .careers p, .FAQ p, .about p, .contact-form label, .TC p, .blog-container p{
+    font-size: 1.05rem;
+    color: #fff;
+}
+.careers h3, .careers h5, .contact-us h3, .FAQ h3, .about h3,.TC h2, .TC h4, .blog-container h2, .blog h3{
+    color: var(--identity);
+}
+.contact-form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+.contact-form .input-container{
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+.input-container input, #contact-form-btn, textarea{
+    width: 60vw;
+    height:3.5rem;
+    border-radius: 1rem;
+    background-color: transparent;
+    color: var(--identity);
+    border:1px solid var(--identity);
+    padding:0.7rem;
+    outline: none;
+}
+.input-container textarea{
+    height: 100% !important;
+    overflow-y: auto;
+    word-spacing: 0.6rem;
+    line-height: 1.4rem;
+    resize: vertical;
+}
+#contact-form-btn{
+    margin-top:2rem;
+    background-color:var(--identity);
+    color: var(--bgOne);
+}
+ .text-container .accordion{
+    padding-top: 1.3rem;
+}
+.text-container .accordion button{
+ border:none;
+ padding:0.8rem 1.3rem;
+ background-color: var(--bgOne);
+ color: var(--identity);
+ font-size: 1rem;
+ box-shadow: 0 0 0 1px var(--identity);
+}
+ .accordion .accordion-item{
+    background-color: var(--identity);
+    color: var(--bgOne);
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, border-radius 0.15s ease;
+}
+.accordion-button::after {
+    display: none !important;
+  }
+  
+@media (min-width: 0px) and (max-width:768px) {
+    .contact-us, .who-we-are, .careers, .FAQ{
+        padding:4rem 1rem;
+    }
+}
+@media (min-width: 0px) and (max-width:576px) {
+.input-container input, #contact-form-btn, textarea{
+        width: 90vw;
+        height:3rem;
+}
+.text-container .accordion button{
+    padding:0.8rem 0.5rem;
+    font-size: 0.8rem;
+   }
+}
+@media (min-width: 577px) and (max-width:768px) {
+.input-container input, #contact-form-btn, textarea{
+        width: 80vw;
+}
+}
