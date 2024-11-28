@@ -35,6 +35,21 @@
     .blog-img{
         max-width: 90vw;
     }
+    .Blog-details-h3 {
+      font-size: 1.5rem;
+    } 
+    .photoAndtext {
+      flex-direction: column;
+    }
+    .main-photo {
+      flex-basis:100%;
+      margin: auto;
+    }
+    .image-container {
+      flex-direction: column; 
+      margin: auto;
+      gap: 1rem;
+    }
 }
 @media (min-width:569px) and (max-width:992px) {
     .blog{
@@ -107,8 +122,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
-  
+  } 
   .main-photo {
     flex-basis: 45%;
     height: 25rem;
