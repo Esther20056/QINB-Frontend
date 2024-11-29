@@ -46,7 +46,7 @@
       margin: auto;
     }
     .image-container {
-      flex-direction: column; 
+      flex-direction: column !important; 
       margin: auto;
       gap: 1rem;
     }
