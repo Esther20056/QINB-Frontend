@@ -71,6 +71,20 @@
         margin-top: 0.7rem;
         font-size: 1rem;
     }
+    .photoAndtext {
+      flex-direction: column;
+    }
+    #blogpost-img{
+      height: 10rem !important;
+      width: 10rem !important; 
+    }
+    .main-photo {
+      flex-basis:100%;
+      margin: auto;
+    }
+    .image-container {
+      gap: 0.5rem !important;
+    }
 }
  @media (min-width:769px) and (max-width:992px) {
     .blog-img{
@@ -100,6 +114,13 @@
         margin-top: 0.7rem;
         font-size: 1rem;
     } 
+    #blogpost-img{
+      height: 20rem !important;
+      width: 20rem !important; 
+    }
+    .image-container {
+      gap: 0.5rem !important;
+    }
 }
 .blog-main-container {
     background-color: var(--bgOne);
@@ -158,7 +179,7 @@
     border-radius: 1rem;
   }
 .image-container .img p{
-    text-align: center;
+    text-align: center !important;
     font-size: 1rem;
     margin-top: 0.8rem;
 }  
