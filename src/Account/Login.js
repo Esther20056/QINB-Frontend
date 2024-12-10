@@ -21,7 +21,7 @@ function Login() {
       setError('Password must be at least 8 characters long, with one uppercase letter and one number.');
       return;
     }
-    setIsLoading(true); // Start loading indicator
+    setIsLoading(true); 
 
     const formData = new FormData();
     formData.append('email', email);
@@ -29,9 +29,9 @@ function Login() {
 
     try {
       const response = await axios.post('http://localhost:8000/login/', formData);
-      const { token } = response.data;  // Assuming your API sends a token in response.data.token
+      const { token } = response.data;  
 
-      localStorage.setItem('userToken', token); // Save only the token to localStorage
+      localStorage.setItem('userToken', token); 
       Swal.fire({
         title: 'Success!',
         text: 'Login successful',
