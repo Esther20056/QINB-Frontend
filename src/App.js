@@ -1,6 +1,7 @@
 import './App.css';
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { useState, useEffect } from 'react'; 
+import 'bootstrap-icons/font/bootstrap-icons.css';
 import Spinner from './Spinner'; 
 import Topheader from './Topheader/Topheader';
 import Login from './Account/Login';
@@ -21,6 +22,7 @@ import AboutQINB from './Footer/AboutQinb';
 import TermsAndConditions from './Footer/TermsAndConditions';
 import Blog from './Blog/Blog';
 import BlogPosts from './Blog/BlogPosts';
+import LazyLoad from 'react-lazyload';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -48,11 +50,21 @@ function App() {
           <Route path="/search-results" element={<SearchResults />} />
           <Route path="/about" element={<AboutQINB />} />
           <Route path="/T&C" element={<TermsAndConditions />} />
-          <Route path="/exclusivedeals-products" element={<ExclusiveDealsProducts />} />
+          <Route path="/exclusivedeals-products" element={
+            <LazyLoad height={200} offset={100}>
+              <ExclusiveDealsProducts />
+            </LazyLoad>
+          } />
+          <Route path='/product/:id' element={
+            <LazyLoad height={200} offset={100}>
+              <ItemsDisplay />
+            </LazyLoad>
+          } />
+
           {/* PRODUCT SECTION STARTS HERE */}
           <Route path="/category/:category/:subcategory?" element={<ProductCategory />} />
-          <Route path='/product/:id' element={<ItemsDisplay />} />
           {/* PRODUCT SECTION ENDS HERE */}
+
           {/* BLOG SECTION STARTS HERE */}
           <Route path="/blog/:id" element={<BlogPosts />} />
           <Route path="/blog" element={<Blog />} />

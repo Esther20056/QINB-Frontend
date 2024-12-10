@@ -6,6 +6,7 @@ import CategoryHighLights from './CategoryHighLights'
 import BestSeller from './BestSeller'
 import Newsletter from '../Account/Newsletter'
 import TrendingProducts from './TrendingProducts'
+import Testimony from '../Testimony/Testimony'
 
 
 function Home() {
@@ -18,6 +19,7 @@ function Home() {
      <ExclusiveDeals/>
      <TrendingProducts/>
      <Newsletter/>
+     <Testimony/>
     </div>
   )
 }

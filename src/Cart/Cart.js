@@ -57,7 +57,7 @@ function Cart() {
     };
 
     try {
-      const response = await axios.post('http://localhost:8000/checkout/', cartData, {
+      const response = await axios.post('http://localhost:8000/cartItemStorage/', cartData, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -90,7 +90,7 @@ function Cart() {
           <div className="cart-header-item">Price</div>
           <div className="cart-header-item">Total</div>
         </div>
-        <ul className="cart-container">
+        <ul className="empty-cart-container">
           {cart.length === 0 ? (
             <li>Your cart is empty</li>
           ) : (

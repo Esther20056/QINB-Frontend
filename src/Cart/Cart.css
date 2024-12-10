@@ -27,10 +27,9 @@
 }
 
 /* Cart container (ul) */
-.cart-container {
+.empty-cart-container{
     list-style-type: none;
-    padding: 0;
-    background-color: rgba(230, 205, 137, 0.2);
+    text-align: center;
 }
 
 .cart-item-li {

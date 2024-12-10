@@ -2,11 +2,7 @@ import React from 'react';
 import './FooterLinks.css';
 
 const careersList = [
-  {
-    title: 'Jewelry Designer',
-    description: 'Creates unique and stylish jewelry pieces, working closely with the design team to craft new collections that reflect the QINB brand’s aesthetic.'
-  },
-  {
+ {
     title: 'Product Manager',
     description: 'Oversees the development and enhancement of QINB’s jewelry, watches, fragrances, and chains, ensuring the product offerings align with customer desires and market trends.'
   },
