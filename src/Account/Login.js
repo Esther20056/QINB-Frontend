@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-
-=======
->>>>>>> 5016efaaec828e85ad2012ff9c7f59626823b086
-
 import React, { useState } from 'react';
 import './Account.css';
 import { Link, useNavigate } from 'react-router-dom';
