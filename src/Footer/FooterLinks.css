@@ -25,32 +25,12 @@
     font-weight: 600;
     text-decoration: none;
 }
-.contact-us p, .who-we-are p, .careers p, .FAQ p, .about p, .contact-form label, .TC p, .blog-container p{
+.contact-us p, .who-we-are p, .careers p, .FAQ p, .about p, .TC p, .blog-container p{
     font-size: 1.05rem;
     color: #fff;
 }
 .careers h3, .careers h5, .contact-us h3, .FAQ h3, .about h3,.TC h2, .TC h4, .blog-container h2, .blog h3{
     color: var(--identity);
-}
-.contact-form{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-.contact-form .input-container{
-    display: flex;
-    flex-direction: column;
-    gap: 0.8rem;
-}
-.input-container input, #contact-form-btn, textarea{
-    width: 60vw;
-    height:3.5rem;
-    border-radius: 1rem;
-    background-color: transparent;
-    color: var(--identity);
-    border:1px solid var(--identity);
-    padding:0.7rem;
-    outline: none;
 }
 .input-container textarea{
     height: 100% !important;
@@ -59,11 +39,7 @@
     line-height: 1.4rem;
     resize: vertical;
 }
-#contact-form-btn{
-    margin-top:2rem;
-    background-color:var(--identity);
-    color: var(--bgOne);
-}
+
  .text-container .accordion{
     padding-top: 1.3rem;
 }
@@ -90,17 +66,8 @@
     }
 }
 @media (min-width: 0px) and (max-width:576px) {
-.input-container input, #contact-form-btn, textarea{
-        width: 90vw;
-        height:3rem;
-}
 .text-container .accordion button{
     padding:0.8rem 0.5rem;
     font-size: 0.8rem;
    }
-}
-@media (min-width: 577px) and (max-width:768px) {
-.input-container input, #contact-form-btn, textarea{
-        width: 80vw;
-}
 }
