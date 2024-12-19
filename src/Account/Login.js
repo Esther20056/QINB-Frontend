@@ -14,53 +14,43 @@ function Login() {
   const navigate = useNavigate();
 
   const isPasswordValid = password.length >= 8 && /[A-Z]/.test(password) && /[0-9]/.test(password);
+const handleLogin = async (e) => {
+  e.preventDefault();
 
-  const handleLogin = async (e) => {
-    e.preventDefault();
-    if (!isPasswordValid) {
-      setError('Password must be at least 8 characters long, with one uppercase letter and one number.');
-      return;
+  const formData = new FormData();
+  formData.append('email', email);
+  formData.append('password', password);
+
+  try {
+    const response = await axios.post('http://localhost:8000/login/', formData);
+    localStorage.setItem('user', JSON.stringify(response.data));
+
+    Swal.fire({
+      title: 'Success!',
+      text: 'Login successful',
+      icon: 'success',
+      confirmButtonText: 'OK'
+    }).then(() => {
+      navigate('/');
+    });
+  } catch (err) {
+    let errorMessage = 'Something went wrong. Please try again.';
+    if (err.response && err.response.data) {
+      const errorResponse = err.response.data;
+      errorMessage = errorResponse.non_field_errors ? errorResponse.non_field_errors[0] : errorMessage;
+    } else if (!err.response) {
+      errorMessage = 'Network Error: Failed to connect to the server.';
     }
-    setIsLoading(true); 
 
-    const formData = new FormData();
-    formData.append('email', email);
-    formData.append('password', password);
-
-    try {
-      const response = await axios.post('http://localhost:8000/login/', formData);
-      const { token } = response.data;  
-
-      localStorage.setItem('userToken', token); 
-      Swal.fire({
-        title: 'Success!',
-        text: 'Login successful',
-        icon: 'success',
-        confirmButtonText: 'OK',
-      }).then(() => {
-        navigate("/checkout");
-      });
-    } catch (err) {
-      let errorMessage = 'Something went wrong. Please try again.';
-      if (err.response && err.response.data) {
-        const errorResponse = err.response.data;
-        errorMessage = errorResponse.non_field_errors ? errorResponse.non_field_errors[0] : errorMessage;
-      } else if (!err.response) {
-        errorMessage = 'Network Error: Failed to connect to the server.';
-      }
-
-      setError(errorMessage);
-      Swal.fire({
-        title: 'Error!',
-        text: errorMessage,
-        icon: 'error',
-        confirmButtonText: 'OK',
-      });
-    } finally {
-      setIsLoading(false); // End loading indicator
-    }
-  };
-
+    setError(errorMessage);
+    Swal.fire({
+      title: 'Error!',
+      text: errorMessage,
+      icon: 'error',
+      confirmButtonText: 'OK'
+    });
+  }
+};
   const togglePasswordVisibility = () => {
     setIsPasswordVisible(prevState => !prevState);
   };

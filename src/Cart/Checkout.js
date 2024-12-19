@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useCart } from './CartContext';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import './Checkout.css';
 import Swal from 'sweetalert2';
@@ -11,6 +11,8 @@ const [shippingMethod, setShippingMethod] = useState('Land Courier');
 const [duties, setDuties] = useState(0);
 const [errors, setErrors] = useState({});
 const [loading, setLoading] = useState(false);
+const [paymentMethod, setPaymentMethod] = useState('paystack');
+const navigate = useNavigate()
 
 const formatPrice = (price) => {
 const formattedPrice = parseFloat(price).toFixed(2);
@@ -40,66 +42,88 @@ else setDuties(20000);
 const handleShippingMethodChange = (e) => {
 setShippingMethod(e.target.value);
 };
+const handlePaymentMethodChange = (e) => {
+  setPaymentMethod(e.target.value); 
+};
 
 async function handleSubmit(e) {
-e.preventDefault();
-setLoading(true);
-setErrors({});
-const formData = new FormData(e.currentTarget);
-try {
-await axios.post('http://localhost:8000/ordersummary/', formData);
+  e.preventDefault();
+  setLoading(true);
+  setErrors({});
 
-Swal.fire({
-icon: 'success',
-title: 'Success!',
-text: '🎉 Congratulations! You have successfully placed your order. 🎉',
-customClass: {
-popup: 'custom-swal-popup',
-title: 'custom-swal-title',
-content: 'custom-swal-content',
-confirmButton: 'custom-swal-confirm'
-},
-confirmButtonText: 'Continue'
-});
-} catch (err) {
-if (err.response && err.response.data) {
-let errorMessages = '';
-for (let key in err.response.data) {
-if (err.response.data.hasOwnProperty(key)) {
-errorMessages += `${key}: ${err.response.data[key]}\n`;
+  const user = JSON.parse(localStorage.getItem("user"));
+  if (!user) {
+    navigate("/login");
+    setLoading(false);
+    return;
+  }
+
+  if (cart.length === 0) {
+    Swal.fire({
+      icon: 'error',
+      title: 'Empty Cart',
+      text: 'Your cart is empty. Please add items before proceeding.',
+    });
+    setLoading(false);
+    return;
+  }
+
+  const formData = new FormData(e.currentTarget);
+  formData.append("user", user.id);
+
+  try {
+    await axios.post('http://localhost:8000/ordersummary/', formData);
+    Swal.fire({
+      icon: 'success',
+      title: 'Success!',
+      text: '🎉 Congratulations! You have successfully placed your order. 🎉 You are now being directed to the payment details page to complete your order.',
+      customClass: {
+        popup: 'custom-swal-popup',
+        title: 'custom-swal-title',
+        content: 'custom-swal-content',
+        confirmButton: 'custom-swal-confirm',
+      },
+      confirmButtonText: 'Continue',
+    });
+    const totalPrice = calculateTotalPrice();
+    const finalAmount = totalPrice + duties;
+    localStorage.setItem('totalAmount', finalAmount);
+
+    if (paymentMethod === 'paystack') {
+      navigate("/Pay-With-Paystack"); 
+    } else if (paymentMethod === 'Bank Transfer') {
+      navigate("/Bank-Transfer"); 
+    }
+
+  } catch (err) {
+    let errorMessages = '';
+    if (err.response && err.response.data) {
+      for (let key in err.response.data) {
+        if (err.response.data.hasOwnProperty(key)) {
+          errorMessages += `${key}: ${err.response.data[key]}\n`;
+        }
+      }
+    }
+    Swal.fire({
+      icon: 'error',
+      title: 'Submission Failed!',
+      text: errorMessages.trim() || 'Something went wrong. Please try again later.',
+      customClass: {
+        popup: 'custom-swal-popup',
+        title: 'custom-swal-title',
+        content: 'custom-swal-content',
+        confirmButton: 'custom-swal-confirm',
+      },
+      confirmButtonText: 'Okay',
+    });
+  } finally {
+    setLoading(false);
+  }
 }
-}
-Swal.fire({
-icon: 'error',
-title: 'Submission Failed!',
-text: errorMessages.trim() || 'Something went wrong. Please try again later.',
-customClass: {
-popup: 'custom-swal-popup',
-title: 'custom-swal-title',
-content: 'custom-swal-content',
-confirmButton: 'custom-swal-confirm'
-},
-confirmButtonText: 'Okay'
-});
-} else {
-Swal.fire({
-icon: 'error',
-title: 'Error!',
-text: 'Something went wrong. Please try again later.',
-customClass: {
-popup: 'custom-swal-popup',
-title: 'custom-swal-title',
-content: 'custom-swal-content',
-confirmButton: 'custom-swal-confirm'
-},
-confirmButtonText: 'Okay'
-});
-}
-} finally {
-setLoading(false);
-}
-}
-  return (
+
+const totalPrice = calculateTotalPrice();
+const finalAmount = totalPrice + duties;
+return (
     <div className="checkout-main-container">
       {/* Cart Items Information */}
       <div className="cart-checkout-item-details">
@@ -117,7 +141,7 @@ setLoading(false);
               </div>
               <p>Quantity: {item.quantity}</p>
               <p>Size: {item.size}</p>
-              <p>Weight: {item.weight} kg</p>
+              <p>Weight: {item.weight}</p>
             </div>
           ))}
           <div className="checkout-total">
@@ -151,7 +175,7 @@ setLoading(false);
                 <input type="text" name='billing_state' placeholder='State' className='checkout-input'/>
               </div>
               <div className="form-checkout-input-container">
-                <input type="text" name='billing_homeaddress' placeholder='House address' className='checkout-input'/>
+                <input type="text" name='billing_homeaddress' placeholder='House address along with the suburb' className='checkout-input'/>
                 <input type="text" name='billing_postalcode' placeholder='Postal Code' className='checkout-input'/>
               </div>
               <div className="form-checkout-input-container">
@@ -177,7 +201,7 @@ setLoading(false);
                 <input type="text" name='delivery_state' placeholder='State' className='checkout-input'/>
               </div>
               <div className="form-checkout-input-container">
-                <input type="text" name='delivery_homeaddress' placeholder='Suburb' className='checkout-input'/>
+                <input type="text" name='delivery_homeaddress' placeholder='House address along with the suburb' className='checkout-input'/>
                 <input type="text" name='delivery_postalcode' placeholder='Postal Code' className='checkout-input'/>
               </div>
             </div>
@@ -215,18 +239,42 @@ setLoading(false);
             </div>
           </div>
         </section>
-
+        {/* paymentMethod */}
+        <section className="shipping-method section">
+          <div className="Billing-Address order">Payment Method</div>
+          <div id="shipping-method-input-container" className="shipment">
+            <p className="method-p">Select payment method</p>
+            <select
+            value={paymentMethod}
+            onChange={handlePaymentMethodChange}
+            name='paymentMethod'
+              className="method"
+            >
+              <option value="paystack" className="shipping-option">Paystack</option>
+              <option value="Bank Transfer" className="shipping-option">Bank Transfer</option>
+            </select>
+          </div>
+        </section>
         {/* Terms and Conditions */}
         <section className="qinbTC">
           <div className="terms-conditions">
             <p>By proceeding with your order, you agree to our <Link to="/terms" className='Qinb-terms-of-sales'>Terms of Sale and Privacy Policy</Link></p>
           </div>
         </section>
-        <button type="submit" className="submit-button">Place Order</button>
+        {/* Display Summary */}
+      <section className="shipping-method section">
+        <div className='Billing-Address order'>Summary</div>
+        <div id="shipping-method-input-container" className="total-flex">
+        <p>Total Price: #{formatPrice(totalPrice)}</p>
+        <p>Duties and Taxes: #{formatPrice(duties)}</p>
+        <p><strong>Total Amount to Pay: #{formatPrice(finalAmount)}</strong></p>
+        <p><strong>Payment Method: {paymentMethod === 'paystack' ? 'Paystack' : 'Bank Transfer'}</strong></p>
+        </div>
+      </section>
+        <button type="submit" className="submit-button">Make Payment</button>
       </form>
     </div>
   );
 }
 
 export default Checkout
-

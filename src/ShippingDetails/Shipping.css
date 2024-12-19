@@ -1,0 +1,11 @@
+.shipping-info-main-container{
+    background-color: var(--bgOne);
+    padding:2rem 1rem;
+    color: #fff;
+}
+.h1-h3{
+    color: var(--identity);
+}
+li{
+    list-style-type: square;
+}

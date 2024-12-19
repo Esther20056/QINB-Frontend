@@ -23,6 +23,13 @@ import TermsAndConditions from './Footer/TermsAndConditions';
 import Blog from './Blog/Blog';
 import BlogPosts from './Blog/BlogPosts';
 import LazyLoad from 'react-lazyload';
+import WebsiteRatingForm from './Account/WebsiteRatingForm';
+import PopUp from './Account/PopUp';
+import Paystack from './Cart/PaymentMethod/Paystack';
+import BankTransfer from './Cart/PaymentMethod/BankTransfer';
+import OrderDetail from './ShippingDetails/OrderDetail';
+import OrderList from './ShippingDetails/OrderList';
+import ShippingDetails from './ShippingDetails/ShippingInfo';
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -36,7 +43,8 @@ function App() {
   return (
     <CartProvider>
       <BrowserRouter>
-        {isLoading && <Spinner />}       
+        {isLoading && <Spinner />} 
+        <PopUp/>      
         <Topheader />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -69,6 +77,15 @@ function App() {
           <Route path="/blog/:id" element={<BlogPosts />} />
           <Route path="/blog" element={<Blog />} />
           {/* BLOG SECTION ENDS HERE */}
+            {/* Rating Form */}
+          <Route path="/rateus" element={<WebsiteRatingForm/>} />
+          <Route path="/Pay-With-Paystack" element={<Paystack/>} />
+          <Route path="/Bank-Transfer" element={<BankTransfer/>} />
+                {/* ORDER/SHIPPING DETAILS  STARTS HERE*/}
+          <Route path="/order" element={<OrderList />} />
+          <Route path="/orders/:id" element={<OrderDetail />} />
+          <Route path="/shipping" element={<ShippingDetails/>} />
+           {/* ORDER/SHIPPING DETAILS  ENDS HERE*/}
         </Routes>
         <Footer />
       </BrowserRouter>

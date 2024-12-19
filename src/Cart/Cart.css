@@ -202,6 +202,9 @@ input[type="number"] {
         font-size: 1rem;
         text-align: center;
     }
+    .payment-total-amount{
+        font-size: 1.1rem;
+    }
 }
 @media (max-width: 400px) {
     .cart-header {
@@ -231,5 +234,39 @@ input[type="number"] {
         padding: 0.6rem 1.8rem;
         font-size: 0.8rem;
     }
+    .payment-total-amount{
+        font-size: 1rem;
+    }
+}
+  /* Payment Method Design */
+.bank-transfer{
+    background-color: var(--bgOne);
+    height: 100%;
+    padding:2rem 1rem;
+    color: #fff;
+    word-break: break-all;
+}
+.payment-total-amount{
+  text-align: center;
+  font-size: 1.4rem;
+  font-family: "Playfair", serif !important;
+}
+.bank-details{
+    display: grid;
+    grid-template-columns: 1fr;
+    margin:0 0 1rem 1rem;
+    font-size: 1.2rem;
+}
+.pay-with-bank-note, .payment-strong-small{
+    color: var(--identity);
+}
+.paystack-btn{
+    width: 14rem;
+    height: 3.5rem;
+    margin:0 0 1rem 1rem;
+    background-color: var(--identity);
+    font-weight: 600;
+    border: none;
+    border-radius: 0.8rem;
 }
 

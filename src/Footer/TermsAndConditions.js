@@ -60,11 +60,11 @@ function TermsAndConditions (){
       <p>
         If you have any questions or concerns regarding these Terms and Conditions, please contact us at:
         <br />
-        Email: <strong>support@qinbfashion.com</strong>
+        Email: <strong>Qinbfashionaccessories@gmail.com</strong>
         <br />
-        Phone: <strong></strong>
+        Phone: <strong>0810 718 2900</strong>
         <br />
-        Address: <strong></strong>
+        Address: <strong>No 2, Mubarak busstop, along Alagbole-Akute Road, Lagos state.</strong>
       </p>
 
       <hr />

@@ -65,3 +65,122 @@
 // }
 
 // export default App;
+
+
+
+  // const handleLogin = async (e) => {
+  //   e.preventDefault();
+  //   setIsLoading(true);
+  
+  //   try {
+  //     const response = await axios.post('http://localhost:8000/login/', {
+  //       email: email,
+  //       password: password,
+  //     });
+  //     const { token } = response.data;  
+  //     console.log("Token from response:", token); 
+  
+  //     if (token) {
+  //       //  token is saved in localStorage
+  //       localStorage.setItem('userToken', token);
+  //       console.log("Token saved to localStorage:", localStorage.getItem('userToken'));
+  //       Swal.fire({
+  //         title: 'Success!',
+  //         text: 'Login successful',
+  //         icon: 'success',
+  //         confirmButtonText: 'OK',
+  //       }).then(() => {
+  //         navigate("/checkout"); 
+  //       });
+  //     } else {
+  //       console.log("No token returned from the server.");
+  //     }
+  //   } catch (err) {
+  //     let errorMessage = 'Something went wrong. Please try again.';
+  //     if (err.response && err.response.data) {
+  //       const errorResponse = err.response.data;
+  //       errorMessage = errorResponse.non_field_errors ? errorResponse.non_field_errors[0] : errorMessage;
+  //     } else if (!err.response) {
+  //       errorMessage = 'Network Error: Failed to connect to the server.';
+  //     }
+  
+  //     setError(errorMessage);
+  //     Swal.fire({
+  //       title: 'Error!',
+  //       text: errorMessage,
+  //       icon: 'error',
+  //       confirmButtonText: 'OK',
+  //     });
+  //   } finally {
+  //     setIsLoading(false);
+  //   }
+  // };
+  
+  
+
+  // async function handleSubmit(e) {
+//   e.preventDefault();
+//   setLoading(true);
+//   setErrors({});
+  
+//   const user = JSON.parse(localStorage.getItem("user"));
+//   if (!user) {
+//     navigate("/login");
+//     setLoading(false);
+//     return;
+//   }
+
+//   if (cart.length === 0) {
+//     Swal.fire({
+//       icon: 'error',
+//       title: 'Empty Cart',
+//       text: 'Your cart is empty. Please add items before proceeding.',
+//     });
+//     setLoading(false);
+//     return;
+//   }
+
+//   const formData = new FormData(e.currentTarget);
+  
+//   formData.append("user", user.id);
+
+//   try {
+//     await axios.post('http://localhost:8000/ordersummary/', formData);
+//     Swal.fire({
+//       icon: 'success',
+//       title: 'Success!',
+//       text: '🎉 Congratulations! You have successfully placed your order. 🎉',
+//       customClass: {
+//         popup: 'custom-swal-popup',
+//         title: 'custom-swal-title',
+//         content: 'custom-swal-content',
+//         confirmButton: 'custom-swal-confirm',
+//       },
+//       confirmButtonText: 'Continue',
+//     });
+//     navigate("/order-confirmation");
+//   } catch (err) {
+//     let errorMessages = '';
+//     if (err.response && err.response.data) {
+//       for (let key in err.response.data) {
+//         if (err.response.data.hasOwnProperty(key)) {
+//           errorMessages += `${key}: ${err.response.data[key]}\n`;
+//         }
+//       }
+//     }
+//     Swal.fire({
+//       icon: 'error',
+//       title: 'Submission Failed!',
+//       text: errorMessages.trim() || 'Something went wrong. Please try again later.',
+//       customClass: {
+//         popup: 'custom-swal-popup',
+//         title: 'custom-swal-title',
+//         content: 'custom-swal-content',
+//         confirmButton: 'custom-swal-confirm',
+//       },
+//       confirmButtonText: 'Okay',
+//     });
+//   } finally {
+//     setLoading(false);
+//   }
+// }

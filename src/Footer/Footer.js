@@ -45,7 +45,7 @@ function Footer() {
           <ul className='quick-links'>
             <li>&gt; <Link to="/blog" style={{ marginLeft: "0.5rem" }}>Blog</Link></li>
             <li>&gt; <Link to="/contact" style={{ marginLeft: "0.5rem" }}>Contact Us</Link></li>
-            <li>&gt; <Link to="/signup" style={{ marginLeft: "0.5rem" }}>My Account</Link></li>
+            <li>&gt; <Link to="/login" style={{ marginLeft: "0.5rem" }}>My Account</Link></li>
             <li>&gt; <Link to="/faq" style={{ marginLeft: "0.5rem" }}>FAQ</Link></li>
             <li>&gt; <Link to="/shipping" style={{ marginLeft: "0.5rem" }}>Shipping</Link></li>
           </ul>

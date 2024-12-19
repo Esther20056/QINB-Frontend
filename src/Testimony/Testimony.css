@@ -18,7 +18,7 @@
   font-weight: bold;
 }
 
-.customer-testimony p {
+.customer-testimony p{
   font-size: 1rem;
   color: #161617;
   text-align: center;
@@ -28,6 +28,7 @@
   display: flex;
   gap: 2rem;
   align-items: center;
+  justify-content: center;
 }
 
 .swiper-slide {
@@ -45,21 +46,6 @@
 
 .swiper-slide:hover {
   transform: scale(1.05);
-}
-
-.testimonial-image {
-  border-radius: 50%;
-  width: 9rem;
-  height: 9rem;
-  object-fit: cover;
-  margin-bottom: 1.2rem;
-  border: 3px solid var(--bgOne); 
-  transition: border-color 0.3s ease, transform 0.3s ease;
-}
-
-.testimonial-image:hover {
-  border-color: var(--identity); 
-  transform: scale(1.1);
 }
 
 .testimony_wrapper h3 {

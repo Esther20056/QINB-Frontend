@@ -63,7 +63,6 @@ function FAQ() {
         </div>
       )
     },
-    // Additional FAQ items
     {
       question: "How long will it take to receive my order?",
       answer: "Once your order is confirmed and processed, we typically ship orders within 1-3 business days. Delivery times vary depending on your location and the shipping method chosen at checkout."
@@ -84,10 +83,7 @@ function FAQ() {
       question: "What happens if an item is out of stock?",
       answer: "If an item is out of stock, you can sign up for restock alerts. We also offer similar product recommendations."
     },
-    {
-      question: "Do your products come with a warranty?",
-      answer: "Yes, all of our jewelry and watches come with a 1-year warranty covering manufacturing defects."
-    }
+  
   ];
 
   return (

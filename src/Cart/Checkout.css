@@ -105,6 +105,25 @@
 .radio-type{
     height: 1.5rem;
 }
+.total-flex{
+    display: grid !important;
+    grid-template-columns: 1fr !important;
+}
+.submit-button{
+    width: 15rem;
+    height: 4rem;
+    margin: auto;
+    display: inline-block;
+    background-color: var(--bgOne);
+    color: var(--identity);
+    border:2px solid var(--identity);
+    margin-bottom: 2rem;
+}
+.submit-button:hover{
+    background-color: var(--identity);
+    color: var(--bgOne);
+    border:2px solid var(--bgOne);
+}
 @media  (min-width:0px) and (max-width:568px){
     .checkout-main-container{
         padding:1.5rem 0.8rem;

@@ -47,27 +47,33 @@ function Cart() {
     }).then(() => {
     });
   };
-  const handleCheckout = async () => {
+  const handleCheckouts = async () => {
+    const user = JSON.parse(localStorage.getItem("user"));
+    if (!user) {
+      navigate('/login'); 
+      return;
+    }
     const cartData = {
+      user: user.id,
       items: cart.map(item => ({
         id: item.id,
         quantity: item.quantity,
       })),
       total: calculateTotalPrice(),
     };
-
+  
     try {
       const response = await axios.post('http://localhost:8000/cartItemStorage/', cartData, {
         headers: {
           'Content-Type': 'application/json',
         },
       });
-
+  
       Swal.fire({
         icon: 'success',
         title: 'Redirecting to Checkout',
       }).then(() => {
-        navigate('/checkout');
+        navigate('/checkout'); 
       });
     } catch (error) {
       console.error('Error creating order:', error);
@@ -78,7 +84,7 @@ function Cart() {
       });
     }
   };
-
+  
   return (
     <div className="cartpage-main-container">
       <bold className="back-btn"><Link to="/category/newproducts">Back to shop</Link></bold>
@@ -137,7 +143,7 @@ function Cart() {
          <div className="dutiesandtaxes-text">Duties, taxes and delivery fee will be calculated at checkout</div>
         {/* Checkout Button */}
         <div className="cart-checkout-btn">
-          <button id='checkout-btn' onClick={handleCheckout} disabled={cart.length === 0}>
+          <button id='checkout-btn' onClick={handleCheckouts} disabled={cart.length === 0}>
             Proceed to Checkout
           </button>
         </div>
